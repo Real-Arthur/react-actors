@@ -38,6 +38,11 @@ class Contact extends Component {
       enterName = () => {
         if(this.state.firstName !== "" && this.state.lastName !== "" && this.state.impression) {
           alert(`Thanks for joining us ${this.state.firstName}`)
+          this.setState({
+            firstName: "",
+            lastName: "",
+            impression: ""
+          })
         }
       }
 
@@ -51,9 +56,9 @@ class Contact extends Component {
         <div>
             <h2>Contact</h2>
             <div id="forms">
-                <input type="text" placeholder="First Name" onChange={this.onFirstName}/>
-                <input type="text" placeholder="Last Name" onChange={this.onLastName}/>
-                <input type="text" placeholder="Impression" onChange={this.onImpression}/>
+                <input type="text" placeholder="First Name" value={this.state.firstName} onChange={this.onFirstName}/>
+                <input type="text" placeholder="Last Name" value={this.state.lastName} onChange={this.onLastName}/>
+                <input type="text" placeholder="Impression" value={this.state.impression} onChange={this.onImpression}/>
                 <button onClick={this.enterName}>Join Us!</button>
             </div>
             <div>
